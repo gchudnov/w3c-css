@@ -63,14 +63,15 @@ Options supported:
 The  [optional] callback argument gets 2 arguments: `function(err, data) {}`
 
 * `err` - an error
-* `data` - a result object with `errors` and `warnings` properties. `data.errors` & `data.warnings` are the arrays on objects:
+* `data` - a result object with `errors` and `warnings` properties. `data.errors` & `data.warnings` are the arrays of following objects:
 
 
 ```javascript
 {
   line: '...', // refers to the line where the error or warning was detected
   message: '...' // the error or warning message
-  //...
+  // additional properties:
+  level: '...' //	еhe level of the warning
 }
 ```
 
