@@ -38,16 +38,7 @@ describe('Url', function() {
 
   });
 
-  it('cannot be validated if invalid', function(done) {
-
-    validator.validate("http://some-invalid-url.net/xrugomndyi97")
-      .on('error', function(err) {
-        should.exist(err);
-        done();
-      });
-  });
-
-  it.only('throws an exception if not set', function(done) {
+  it('throws an exception if not set', function(done) {
 
     (function() {
       validator.validate();

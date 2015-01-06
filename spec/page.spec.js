@@ -34,4 +34,13 @@ describe('Page', function() {
 
   });
 
+  it('cannot be validated if URL is invalid', function(done) {
+
+    validator.validate(config.url_not_found)
+      .on('error', function(err) {
+        should.exist(err);
+        done();
+      });
+  });
+
 });

@@ -1,3 +1,4 @@
 {
-  "url_to_validate": "https://github.com/gchudnov/w3c-css"
+  "url_to_validate": "https://github.com/gchudnov/w3c-css",
+  "url_not_found": "http://some-invalid-url.net/xrugomndyi97"
 }
