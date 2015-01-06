@@ -84,3 +84,13 @@ All events are emitted with a single argument. The list of supported events are 
 * `validation-warning` - raised on validation warning
 * `error` - raised when a problem with validator is encountered, e.g. invalid URL
 * `end` - raised on completion
+
+
+## Contact
+
+[Grigoriy Chudnov] (mailto:g.chudnov@gmail.com)
+
+
+## License
+
+Distributed under the [The MIT License (MIT)](https://github.com/gchudnov/w3c-css/blob/master/LICENSE).
