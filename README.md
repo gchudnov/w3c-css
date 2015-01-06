@@ -58,13 +58,13 @@ Options supported:
 * `uri` || `url` - the URL of the document to validate
 * `profile` - the CSS profile used for the validation: `css1, css2, css21, css3` [default: 'css3']
 * `usermedium` - the medium used for the validation: `screen, print, ...` [default: 'all']
-* `callback` - [optional] callback to invoke on completion
 
 
-The callback argument gets 2 arguments:
+The  [optional] callback argument gets 2 arguments: `function(err, data) {}`
 
 1. `err` - an error
 2. `data` - a result object with `errors` and `warnings` properties. `data.errors` and `data.warnings` are the arrays on objects:
+
 ```javascript
 {
   line: '...', // refers to the line where the error or warning was detected
