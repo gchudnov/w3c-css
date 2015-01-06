@@ -13,7 +13,7 @@ var config = require('./config');
 
 
 describe('Callback', function() {
-  this.timeout(10000);
+  this.timeout(config.test_timeout);
 
   var urlToValidate = config.url_to_validate;
 
@@ -28,7 +28,7 @@ describe('Callback', function() {
         done();
       });
 
-    }, 1000);
+    }, config.test_delay);
 
   });
 
@@ -41,7 +41,7 @@ describe('Callback', function() {
         done();
       });
 
-    }, 1000);
+    }, config.test_delay);
 
   });
 

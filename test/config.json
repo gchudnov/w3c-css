@@ -1,4 +1,6 @@
 {
   "url_to_validate": "https://github.com/gchudnov/w3c-css",
-  "url_not_found": "http://some-invalid-url.net/xrugomndyi97"
+  "url_not_found": "http://some-invalid-url.net/xrugomndyi97",
+  "test_delay": 1000,
+  "test_timeout": 10000
 }

@@ -13,7 +13,7 @@ var config = require('./config');
 
 
 describe('Url', function() {
-  this.timeout(10000);
+  this.timeout(config.test_timeout);
 
   var urlToValidate = config.url_to_validate;
 
@@ -29,7 +29,7 @@ describe('Url', function() {
           done();
         });
 
-    }, 1000);
+    }, config.test_delay);
 
   });
 
@@ -49,7 +49,7 @@ describe('Url', function() {
           done();
         });
 
-    }, 1000);
+    }, config.test_delay);
 
   });
 

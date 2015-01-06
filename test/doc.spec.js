@@ -15,7 +15,7 @@ var config = require('./config');
 
 
 describe('Document', function() {
-  this.timeout(10000);
+  this.timeout(config.test_timeout);
 
   it('can be validated with no errors or warnings', function(done) {
 
@@ -34,7 +34,7 @@ describe('Document', function() {
         done();
       });
 
-    }, 1000);
+    }, config.test_delay);
 
   });
 
@@ -55,7 +55,7 @@ describe('Document', function() {
         done();
       });
 
-    }, 1000);
+    }, config.test_delay);
 
   });
 
@@ -76,7 +76,7 @@ describe('Document', function() {
         done();
       });
 
-    }, 1000);
+    }, config.test_delay);
 
   });
 
