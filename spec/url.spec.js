@@ -47,4 +47,14 @@ describe('Url', function() {
       });
   });
 
+  it.only('throws an exception if not set', function(done) {
+
+    (function() {
+      validator.validate();
+    }).should.throw();
+
+    done();
+
+  });
+
 });
