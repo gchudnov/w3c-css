@@ -66,7 +66,7 @@ Options supported:
 * `usermedium` - the [medium](http://www.w3.org/TR/CSS2/media.html) used for the validation: `screen, print, ...` [default: 'all', which is suitable for all devices]
 
 
-The  [optional] callback argument gets 2 arguments: `function(err, data) {}`
+The  [optional] callback argument gets 2 arguments:
 
 * `err` - an error
 * `data` - a result object with `errors` and `warnings` properties. `data.errors` & `data.warnings` are the arrays of following objects:
@@ -77,7 +77,7 @@ The  [optional] callback argument gets 2 arguments: `function(err, data) {}`
   line: '...', // refers to the line where the error or warning was detected
   message: '...' // the error or warning message
   // additional properties:
-  level: '...' //	еhe level of the warning
+  level: '...' // the level of the warning
 }
 ```
 
