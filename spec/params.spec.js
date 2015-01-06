@@ -94,4 +94,22 @@ describe('Parameters', function () {
 
   });
 
+  describe('uri & text', function() {
+
+    it('cannot be specified both at the same time', function(done) {
+
+      var params = {
+        uri: urlToValidate,
+        text: 'body { }'
+      };
+      (function() {
+        validator.validate(params);
+      }).should.throw();
+
+      done();
+
+    });
+
+  })
+
 });
