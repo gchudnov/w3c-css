@@ -54,7 +54,7 @@ validator.validate('https://github.com/')
 
 ## Arguments
 
-The first argument to the `validate` function can be either a `url` or an `options` object. The only required option is `uri`; all others are optional.
+The first argument to the `validate` function can be either an URL or an `options` object. The only required option is `uri`; all others are optional.
 
 * `uri` || `url` - the URL of the document to validate
 * `profile` - the CSS profile used for the validation: `css1, css2, css21, css3` [default: 'css3']
@@ -68,7 +68,21 @@ The callback argument gets 2 arguments:
 2. `data` - a result object with `errors` and `warnings` properties. `data.errors` and `data.warnings` are the arrays on objects:
 ```javascript
 {
-  line: '...',
-  message: '...'
+  line: '...', // refers to the line where the error or warning was detected
+  message: '...' // the error or warning message
+  //...
 }
 ```
+
+## Events
+
+All events are emitted with a single argument. The list of supported events are exported in the
+`EVENTS` array. Assign handlers using the EventEmitter `on` function.
+
+* `validation-error` - raised on validation error
+* `validation-warning` - raised on validation warning
+* `error` - raised when a problem with validator is encountered, e.g. invalid URL
+* `end` - raised on completion
+
+
+  
