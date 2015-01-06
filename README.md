@@ -2,6 +2,11 @@
 
 
 CSS Validation using [W3C CSS Validation Service](http://jigsaw.w3.org/css-validator/)
+The validator will check the compliance against CSS profile specified (CSS3 by default)
+There two types of validation events: errors and warnings.
+* Errors are reported when the checked CSS does not respect the CSS recommendation.
+* Warnings do not state a problem regarding the specification. They are used to notify that some CSS-input and could lead to a strange behaviour on some user agents.
+
 
 ## Usage
 
@@ -52,12 +57,13 @@ validator.validate('https://github.com/')
 
 ## Arguments
 
-The first argument to the `validate` function can be either an URL or an `options` object. The only required option is `uri`; all others are optional.
+The first argument to the `validate` function can be either an URL or an `options` object. The only required option is `uri` or `text`; all others are optional.
 
 Options supported:
 * `uri` || `url` - the URL of the document to validate
+* `text` - CSS document or fragment to validate. Only CSS-content is allowed
 * `profile` - the CSS profile used for the validation: `css1, css2, css21, css3` [default: 'css3']
-* `usermedium` - the medium used for the validation: `screen, print, ...` [default: 'all']
+* `usermedium` - the [medium](http://www.w3.org/TR/CSS2/media.html) used for the validation: `screen, print, ...` [default: 'all', which is suitable for all devices]
 
 
 The  [optional] callback argument gets 2 arguments: `function(err, data) {}`
@@ -80,10 +86,10 @@ The  [optional] callback argument gets 2 arguments: `function(err, data) {}`
 All events are emitted with a single argument. The list of supported events are exported in the
 `EVENTS` array. Assign handlers using the EventEmitter `on` function.
 
-* `validation-error` - raised on validation error
-* `validation-warning` - raised on validation warning
-* `error` - raised when a problem with validator is encountered, e.g. invalid URL
-* `end` - raised on completion
+* `validation-error` - raised on CSS-validation error
+* `validation-warning` - raised on CSS-validation warning
+* `error` - raised when a problem with validator is encountered, e.g. an invalid URL was specified
+* `end` - raised on completion. There will be no other events raised after this one.
 
 
 ## Contact
