@@ -62,8 +62,9 @@ Options supported:
 
 The  [optional] callback argument gets 2 arguments: `function(err, data) {}`
 
-1. `err` - an error
-2. `data` - a result object with `errors` and `warnings` properties. `data.errors` and `data.warnings` are the arrays on objects:
+* `err` - an error
+* `data` - a result object with `errors` and `warnings` properties. `data.errors` & `data.warnings` are the arrays on objects:
+
 
 ```javascript
 {
@@ -82,6 +83,3 @@ All events are emitted with a single argument. The list of supported events are 
 * `validation-warning` - raised on validation warning
 * `error` - raised when a problem with validator is encountered, e.g. invalid URL
 * `end` - raised on completion
-
-
-  
