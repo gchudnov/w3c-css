@@ -7,7 +7,6 @@ CSS Validation using [W3C CSS Validation Service](http://jigsaw.w3.org/css-valid
 
 ```javascript
 'use strict';
-
 var validator = require('w3c-css');
 
 validator.validate('https://github.com/', function(err, data) {
@@ -30,7 +29,6 @@ OR listen for events
 
 ```javascript
 'use strict';
-
 var validator = require('w3c-css');
 
 validator.validate('https://github.com/')
