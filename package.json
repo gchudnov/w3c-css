@@ -15,7 +15,7 @@
     "w3c",
     "validate"
   ],
-  "author": "Grigoriy Chudnov <g.chudnov@gmail.com>",
+  "author": "Grigoriy Chudnov <g.chudnov@gmail.com> (https://github.com/gchudnov)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gchudnov/w3c-css/issues"
