@@ -25,7 +25,7 @@ validator.validate('https://github.com/', function(err, data) {
 
 ```
 
-OR listen for events
+OR listen for events:
 
 ```javascript
 'use strict';
@@ -54,6 +54,7 @@ validator.validate('https://github.com/')
 
 The first argument to the `validate` function can be either an URL or an `options` object. The only required option is `uri`; all others are optional.
 
+Options supported:
 * `uri` || `url` - the URL of the document to validate
 * `profile` - the CSS profile used for the validation: `css1, css2, css21, css3` [default: 'css3']
 * `usermedium` - the medium used for the validation: `screen, print, ...` [default: 'all']
