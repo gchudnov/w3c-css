@@ -1,7 +1,7 @@
 w3c-css
 =======
 
-CSS Validartion using [W3C CSS Validation Service](http://jigsaw.w3.org/css-validator/)
+CSS Validation using [W3C CSS Validation Service](http://jigsaw.w3.org/css-validator/)
 
 ## Usage
 
@@ -56,6 +56,19 @@ validator.validate('https://github.com/')
 
 The first argument to the `validate` function can be either a `url` or an `options` object. The only required option is `uri`; all others are optional.
 
-* `uri` - the URL of the document to validate
-* `profile` - the CSS profile used for the validation: css1, css2, css21, css3
-* `usermedium` - the medium used for the validation: screen, print, ...
+* `uri` || `url` - the URL of the document to validate
+* `profile` - the CSS profile used for the validation: `css1, css2, css21, css3` [default: 'css3']
+* `usermedium` - the medium used for the validation: `screen, print, ...` [default: 'all']
+* `callback` - [optional] callback to invoke on completion
+
+
+The callback argument gets 2 arguments:
+
+1. `err` - an error
+2. `data` - a result object with `errors` and `warnings` properties. `data.errors` and `data.warnings` are the arrays on objects:
+```javascript
+{
+  line: '...',
+  message: '...'
+}
+```
