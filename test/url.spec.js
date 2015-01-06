@@ -10,7 +10,7 @@ describe('Url', function() {
 
   var urlToValidate = config.url_to_validate;
 
-  it('can be set as a string parameter', function(done) {
+  it('can be set as a string argument', function(done) {
 
     validator.validate(urlToValidate)
       .on('error', function(err) {
@@ -22,7 +22,7 @@ describe('Url', function() {
 
   });
 
-  it('can be set as part of input params', function(done) {
+  it('can be set via input params property', function(done) {
 
     var params = {
       url: urlToValidate
@@ -35,16 +35,6 @@ describe('Url', function() {
       .on('end', function() {
         done();
       });
-
-  });
-
-  it('throws an exception if not set', function(done) {
-
-    (function() {
-      validator.validate();
-    }).should.throw();
-
-    done();
 
   });
 

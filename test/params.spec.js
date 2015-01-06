@@ -110,6 +110,6 @@ describe('Parameters', function () {
 
     });
 
-  })
+  });
 
 });

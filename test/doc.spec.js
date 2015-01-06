@@ -9,7 +9,7 @@ var config = require('./config');
 describe('Document', function() {
   this.timeout(10000);
 
-  it('can be without errors or warnings', function(done) {
+  it('can be validated with no errors or warnings', function(done) {
 
     var cssPath = path.join(__dirname, './css/has-no-errors.css');
     var params = {
@@ -26,7 +26,7 @@ describe('Document', function() {
 
   });
 
-  it('can be with warnings', function(done) {
+  it('can be validated with warnings', function(done) {
 
     var cssPath = path.join(__dirname, './css/has-warnings.css');
     var params = {
@@ -43,7 +43,7 @@ describe('Document', function() {
 
   });
 
-  it('can be with errors', function(done) {
+  it('can be validated with errors', function(done) {
 
     var cssPath = path.join(__dirname, './css/has-errors.css');
     var params = {

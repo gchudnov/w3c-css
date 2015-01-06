@@ -43,4 +43,14 @@ describe('Page', function() {
       });
   });
 
+  it('cannot be validated without setting a source (uri or text)', function(done) {
+
+    (function() {
+      validator.validate();
+    }).should.throw();
+
+    done();
+
+  });
+
 });
