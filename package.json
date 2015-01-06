@@ -1,0 +1,32 @@
+{
+  "name": "w3c-css",
+  "version": "0.1.0",
+  "description": "CSS Validation using W3C CSS Validation Service",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gchudnov/w3c-css.git"
+  },
+  "keywords": [
+    "css",
+    "w3c",
+    "validate"
+  ],
+  "author": "Grigoriy Chudnov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gchudnov/w3c-css/issues"
+  },
+  "homepage": "https://github.com/gchudnov/w3c-css",
+  "dependencies": {
+    "request": "^2.51.0",
+    "sax": "^0.6.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.1.0",
+    "should": "^4.4.2"
+  }
+}
