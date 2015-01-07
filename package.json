@@ -1,6 +1,6 @@
 {
   "name": "w3c-css",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "CSS Validation using W3C CSS Validation Service",
   "main": "index.js",
   "scripts": {

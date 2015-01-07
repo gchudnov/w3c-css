@@ -80,4 +80,18 @@ describe('Document', function() {
 
   });
 
+  it('cannot be validated if text is empty', function(done) {
+
+    var params = {
+      text: ''
+    };
+
+    (function() {
+      validator.validate(params);
+    }).should.throw();
+
+    done();
+
+  });
+
 });
