@@ -12,8 +12,11 @@
   },
   "keywords": [
     "css",
+    "stylesheet",
+    "styles",
     "w3c",
     "validate",
+    "lint",
     "compliance"
   ],
   "author": "Grigoriy Chudnov <g.chudnov@gmail.com> (https://github.com/gchudnov)",
