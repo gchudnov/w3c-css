@@ -1,8 +1,9 @@
 # w3c-css  [![Build Status](https://travis-ci.org/gchudnov/w3c-css.svg?branch=master)](https://travis-ci.org/gchudnov/w3c-css)
 
 
-CSS Validation using [W3C CSS Validation Service](http://jigsaw.w3.org/css-validator/)
-The validator will check the compliance against CSS profile specified (CSS3 by default) and report errors and potential problems in Cascading Style Sheets.
+CSS Validation using [W3C CSS Validation Service](http://jigsaw.w3.org/css-validator/).
+
+_w3c-css_ will check the compliance against CSS profile specified (CSS3 by default) and report errors and potential problems in Cascading Style Sheets.
 There are two types of validation events: errors and warnings.
 * Errors are reported when the checked CSS does not respect the CSS recommendation.
 * Warnings do not state a problem regarding the specification. They are used to notify that some CSS-input and could lead to a strange behaviour on some user agents.
