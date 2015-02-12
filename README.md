@@ -102,17 +102,27 @@ All events are emitted with a single argument. The list of supported events are 
 
 
 ## CLI
-validator can be invoked from the command line.
+As an alternative, validator can be invoked from the command line.
 
 Options supported:
-* `summary` - get only the number of errors and warnings
+* `summary` - print only the number of errors and warnings
 
+For local installs:
 ```
-$ ./node_modules/.bin/w3c-css http://example-site.com/ --summary
-validating: http://example-site.com/
+$ ./node_modules/.bin/w3c-css example-site.com --summary
+```
+
+For global installs (-g):
+```
+$ w3c-css example-site.com
+```
+
+Sample output:
+```
+$ ./node_modules/.bin/w3c-css example-site.com --summary
+validating: http://example-site.com
 validation complete
 css-errors: 207, css-warnings: 270
-
 ```
 
 
