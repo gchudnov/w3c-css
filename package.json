@@ -26,11 +26,11 @@
   },
   "homepage": "https://github.com/gchudnov/w3c-css",
   "dependencies": {
-    "request": "^2.51.0",
+    "request": "^2.53.0",
     "sax": "^0.6.1"
   },
   "devDependencies": {
     "mocha": "^2.1.0",
-    "should": "^4.4.2"
+    "should": "^5.0.0"
   }
 }
