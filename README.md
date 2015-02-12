@@ -8,6 +8,11 @@ There are two types of validation events: errors and warnings.
 * Errors are reported when the checked CSS does not respect the CSS recommendation.
 * Warnings do not state a problem regarding the specification. They are used to notify that some CSS-input and could lead to a strange behaviour on some user agents.
 
+## Installation
+```bash
+$ npm install w3c-css
+```
+
 
 ## Usage
 
