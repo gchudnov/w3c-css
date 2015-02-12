@@ -1,7 +1,7 @@
 {
   "name": "w3c-css",
   "version": "0.3.2",
-  "description": "CSS Validation using W3C CSS Validation Service",
+  "description": "Validate CSS using W3C CSS Validation Service",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec"
@@ -12,10 +12,10 @@
   },
   "keywords": [
     "css",
+    "validate",
     "stylesheet",
     "styles",
     "w3c",
-    "validate",
     "lint",
     "compliance"
   ],

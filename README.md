@@ -1,7 +1,7 @@
 # w3c-css  [![Build Status](https://travis-ci.org/gchudnov/w3c-css.svg?branch=master)](https://travis-ci.org/gchudnov/w3c-css)
 
 
-CSS Validation using [W3C CSS Validation Service](http://jigsaw.w3.org/css-validator/).
+Validate CSS using [W3C CSS Validation Service](http://jigsaw.w3.org/css-validator/).
 
 _w3c-css_ will check the compliance against CSS profile specified (CSS3 by default) and report errors and potential problems in Cascading Style Sheets.
 There are two types of validation events: errors and warnings.
