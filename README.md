@@ -70,17 +70,25 @@ Options supported:
 The  [optional] callback argument gets 2 arguments:
 
 * `err` - an error
-* `data` - a result object with `errors` and `warnings` properties. `data.errors` & `data.warnings` are the arrays of following objects:
+* `data` - a result object with `errors` and `warnings` properties.
 
+
+## CSS Errors & Warnings
+`errors` and `warnings` reported by the library are the arrays of following objects:
 
 ```javascript
 {
-  line: '...', // refers to the line where the error or warning was detected
-  message: '...' // the error or warning message
+  line: '...',      // refers to the line where the error or warning was detected
+  message: '...'    // the error or warning message
+
   // additional properties:
-  level: '...' // the level of the warning
+  errorType: '...', // type of the error
+  context: '...',   // context of the error
+  level: '...',     // the level of the warning
+  uri: '...'        // URL of the stylesheet
 }
 ```
+
 
 ## Events
 
@@ -91,6 +99,21 @@ All events are emitted with a single argument. The list of supported events are 
 * `validation-warning` - raised on CSS-validation warning
 * `error` - raised when a problem with validator is encountered, e.g. an invalid URL was specified
 * `end` - raised on completion. There will be no other events raised after this one.
+
+
+## CLI
+validator can be invoked from the command line.
+
+Options supported:
+* `summary` - get only the number of errors and warnings
+
+```
+$ ./node_modules/.bin/w3c-css http://example-site.com/ --summary
+validating: http://example-site.com/
+validation complete
+css-errors: 207, css-warnings: 270
+
+```
 
 
 ## Contact

@@ -6,6 +6,9 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec"
   },
+  "bin": {
+    "w3c-css": "./lib/cli.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/gchudnov/w3c-css.git"
@@ -26,6 +29,7 @@
   },
   "homepage": "https://github.com/gchudnov/w3c-css",
   "dependencies": {
+    "nopt": "^3.0.1",
     "request": "^2.53.0",
     "sax": "^0.6.1"
   },
