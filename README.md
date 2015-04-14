@@ -61,6 +61,11 @@ validator.validate('https://github.com/')
 
 ```
 
+## Note
+> Please make sure your script [sleep for at least 1 second between requests](http://jigsaw.w3.org/css-validator/manual.html).
+> The CSS Validation service is a free, public service for all, your respect is appreciated.
+
+
 ## Arguments
 
 The first argument to the `validate` function can be either an URL or an `options` object. The only required option is `uri` or `text`; all others are optional.
