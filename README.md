@@ -62,9 +62,38 @@ validator.validate('https://github.com/')
 ```
 
 ## Note
-> Please make sure your script [sleep for at least 1 second between requests](http://jigsaw.w3.org/css-validator/manual.html).
-> The CSS Validation service is a free, public service for all, your respect is appreciated.
+Please make sure your script [sleep for at least 1 second between requests](http://jigsaw.w3.org/css-validator/manual.html).
+The CSS Validation service is a free, public service for all, your respect is appreciated.
 
+To validate multiple links, use [async](https://github.com/caolan/async#eachseriesarr-iterator-callback) + [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setTimeout) or any related way to pause between the requests:  
+
+```javascript
+'use strict';
+
+var async = require('async');
+var validator = require('w3c-css');
+
+var hrefs = ['http://google.com', 'https://developer.mozilla.org', 'http://www.microsoft.com/'];
+
+async.eachSeries(hrefs, function(href, next) {
+  validator.validate(href, function(err, data) {
+    if(err) {
+      console.log('Failed to process: ' + href, err);
+    } else {
+      console.log('validation errors on ' + href, data.errors);
+      console.log('validation warnings on ' + href, data.warnings);
+    }
+
+    setTimeout(function() { next(err); }, 1500); // sleep for 1.5 second between the requests
+  });
+}, function(err) {
+  if(err) {
+    console.log('Failed to process a url', err);
+  } else {
+    console.log('All urls have been processed successfully');
+  }
+});
+```
 
 ## Arguments
 
