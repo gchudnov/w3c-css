@@ -1,3 +1,3 @@
 # 1.0.0
-* Added `warning level` option.
+* Added [warning](https://github.com/gchudnov/w3c-css#arguments) option.
 * Updated dependencies.
