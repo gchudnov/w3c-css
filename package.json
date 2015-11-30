@@ -1,6 +1,6 @@
 {
   "name": "w3c-css",
-  "version": "0.4.1",
+  "version": "1.0.0",
   "description": "Validate CSS using W3C CSS Validation Service",
   "main": "index.js",
   "scripts": {
@@ -29,13 +29,13 @@
   },
   "homepage": "https://github.com/gchudnov/w3c-css",
   "dependencies": {
-    "nopt": "^3.0.2",
-    "request": "^2.57.0",
-    "sax": "^1.1.1"
+    "nopt": "^3.0.6",
+    "request": "^2.67.0",
+    "sax": "^1.1.4"
   },
   "devDependencies": {
-    "async": "^1.2.1",
-    "mocha": "^2.2.5",
-    "should": "^6.0.3"
+    "async": "^1.5.0",
+    "mocha": "^2.3.4",
+    "should": "^7.1.1"
   }
 }
