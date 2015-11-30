@@ -104,6 +104,7 @@ Options supported:
 * `text` - CSS document or fragment to validate. Only CSS-content is allowed
 * `profile` - the CSS profile used for the validation: `css1, css2, css21, css3` [default: 'css3']
 * `usermedium` - the [medium](http://www.w3.org/TR/CSS2/media.html) used for the validation: `screen, print, ...` [default: 'all', which is suitable for all devices]
+* `warning` - The warning level, "no" for no warnings, 0 for less warnings, 1or 2 for more warnings [default: 2] 
 
 
 The  [optional] callback argument gets 2 arguments:
