@@ -1,10 +1,12 @@
 {
   "name": "w3c-css",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Validate CSS using W3C CSS Validation Service",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "mocha --reporter spec",
+    "docker:build": "docker build -t css-validator ./local",
+    "docker:run": "docker run -it --rm css-validator"
   },
   "bin": {
     "w3c-css": "./lib/cli.js"
@@ -30,12 +32,12 @@
   "homepage": "https://github.com/gchudnov/w3c-css",
   "dependencies": {
     "nopt": "^3.0.6",
-    "request": "^2.69.0",
+    "request": "^2.72.0",
     "sax": "^1.2.1"
   },
   "devDependencies": {
-    "async": "^2.0.0-rc.2",
+    "async": "^2.0.0-rc.3",
     "mocha": "^2.4.5",
-    "should": "^8.3.0"
+    "should": "^8.3.1"
   }
 }
