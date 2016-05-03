@@ -61,7 +61,35 @@ validator.validate('https://github.com/')
 
 ```
 
-## Note
+## Public vs. Private CSS Validator
+* The public [CSS Validation service](https://jigsaw.w3.org/css-validator/) requires a delay for at least 1 second between the requests.
+* Run a [private copy](https://jigsaw.w3.org/css-validator/DOWNLOAD.html) of a validator without delay restrictions. 
+
+### Private CSS Validator
+To deploy a private CSS Validator, use the following npm commands below to run a [Docker](https://www.docker.com/)-based instance locally or use an official [guideline](https://jigsaw.w3.org/css-validator/DOWNLOAD.html) to download and install it.
+
+Building validator:
+```
+$ npm run validator:build
+```
+
+Running validator:
+```
+$ npm run validator:run
+```
+or
+```
+$ npm run validator:run:detach
+```
+
+Locating IP:PORT of the running docker container:
+```
+$ npm run validator:find
+```
+Prints something like `{ "hostname": "172.17.0.2", "port": 8080 }` if the container is running. Pass the returned object as a value for the `server` argument to the `validate` function.
+
+
+### Public CSS Validator
 Please make sure your script [sleep for at least 1 second between requests](http://jigsaw.w3.org/css-validator/manual.html).
 The CSS Validation service is a free, public service for all, your respect is appreciated.
 
@@ -104,8 +132,8 @@ Options supported:
 * `text` - CSS document or fragment to validate. Only CSS-content is allowed
 * `profile` - the CSS profile used for the validation: `css1, css2, css21, css3` [default: 'css3']
 * `usermedium` - the [medium](http://www.w3.org/TR/CSS2/media.html) used for the validation: `screen, print, ...` [default: 'all', which is suitable for all devices]
-* `warning` - The warning level, "no" for no warnings, 0 for less warnings, 1or 2 for more warnings [default: 2] 
-
+* `warning` - the warning level, "no" for no warnings, 0 for less warnings, 1or 2 for more warnings [default: 2] 
+* `server` - the URL object of a custom validation server, as defined for [url.format(urlObj)](https://nodejs.org/api/url.html), e.g, `{ host: '172.17.0.2:8080' }`
 
 The  [optional] callback argument gets 2 arguments:
 
@@ -146,6 +174,7 @@ As an alternative, validator can be invoked from the command line.
 
 Options supported:
 * `summary` - print only the number of errors and warnings
+* `host` - defines a custom validation server, e.g.: `172.17.0.2:8080`
 
 For local installs:
 ```
@@ -155,6 +184,11 @@ $ ./node_modules/.bin/w3c-css example-site.com --summary
 For global installs (-g):
 ```
 $ w3c-css example-site.com
+```
+
+With custom validation server:
+```
+$ w3c-css example-site.com --host=172.17.0.2:8080
 ```
 
 Sample output:
