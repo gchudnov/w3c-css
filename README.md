@@ -63,17 +63,17 @@ validator.validate('https://github.com/')
 
 ## Public vs. Private CSS Validator
 * The public [CSS Validation service](https://jigsaw.w3.org/css-validator/) requires a delay for at least 1 second between the requests.
-* Run a [private copy](https://jigsaw.w3.org/css-validator/DOWNLOAD.html) of a validator without delay restrictions. 
+* Run a [private copy](https://jigsaw.w3.org/css-validator/DOWNLOAD.html) of the CSS Validator without delay restrictions. 
 
 ### Private CSS Validator
 To deploy a private CSS Validator, use the following npm commands below to run a [Docker](https://www.docker.com/)-based instance locally or use an official [guideline](https://jigsaw.w3.org/css-validator/DOWNLOAD.html) to download and install it.
 
-Building validator:
+Building a docker image of the CSS Validator:
 ```
 $ npm run validator:build
 ```
 
-Running validator:
+Running the container:
 ```
 $ npm run validator:run
 ```
@@ -86,7 +86,7 @@ Locating IP:PORT of the running docker container:
 ```
 $ npm run validator:find
 ```
-Prints something like `{ "hostname": "172.17.0.2", "port": 8080 }` if the container is running. Pass the returned object as a value for the `server` argument to the `validate` function.
+Prints an object, like `{ "hostname": "172.17.0.2", "port": 8080 }` if the container is running. Pass the returned object as a value for the `server` argument to the `validate` function.
 
 
 ### Public CSS Validator
@@ -133,7 +133,7 @@ Options supported:
 * `profile` - the CSS profile used for the validation: `css1, css2, css21, css3` [default: 'css3']
 * `usermedium` - the [medium](http://www.w3.org/TR/CSS2/media.html) used for the validation: `screen, print, ...` [default: 'all', which is suitable for all devices]
 * `warning` - the warning level, "no" for no warnings, 0 for less warnings, 1or 2 for more warnings [default: 2] 
-* `server` - the URL object of a custom validation server, as defined for [url.format(urlObj)](https://nodejs.org/api/url.html), e.g, `{ host: '172.17.0.2:8080' }`
+* `server` - the "IP:PORT" string or the [URL object](https://nodejs.org/api/url.html) of a custom validation server, e.g, `'172.17.0.2:8080'` or `{ host: '172.17.0.2:8080' }`
 
 The  [optional] callback argument gets 2 arguments:
 
