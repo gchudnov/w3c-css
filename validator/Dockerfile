@@ -12,7 +12,7 @@ RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | te
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886 && \
     apt-get update && \
     echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
-    apt-get install -y oracle-java8-installer wget unzip tar && \
+    apt-get install -y oracle-java8-installer && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /var/cache/oracle-jdk8-installer
 
@@ -40,4 +40,3 @@ RUN SERVLET_API_FILE=$(find / -name "servlet-api.jar" | sed -e 's/[\/&]/\\&/g') 
 RUN cd /opt/css-validator && \
     ant war && \
     cp css-validator.war ${CATALINA_HOME}/webapps
-
