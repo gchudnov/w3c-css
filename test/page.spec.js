@@ -11,20 +11,19 @@ var config = require('./config');
  * The CSS Validation service is a free, public service for all, your respect is appreciated. thanks.
  */
 
-
 describe('Page', function() {
-  this.timeout(config.test_timeout);
-
-  var urlToValidate = config.url_to_validate;
+  this.timeout(config.TEST_TIMEOUT);
 
   it('can be validated', function(done) {
-
     setTimeout(function() {
-
       var errorCount = 0;
       var warningCount = 0;
 
-      validator.validate(urlToValidate)
+      var params = {
+        server: config.SERVER,
+        url: config.URL_TO_VALIDATE
+      };
+      validator.validate(params)
         .on('validation-error', function(data) {
           should.exist(data);
           data.should.have.properties('line', 'message');
@@ -41,32 +40,32 @@ describe('Page', function() {
           done();
         });
 
-    }, config.test_delay);
-
+    }, config.TEST_DELAY);
   });
 
   it('cannot be validated if URL is invalid', function(done) {
-
     setTimeout(function() {
-
-      validator.validate(config.url_not_found)
+      var params = {
+        server: config.SERVER,
+        url: config.URL_NOT_FOUND
+      };
+      validator.validate(params)
         .on('error', function(err) {
           should.exist(err);
+          err.should.have.properties('statusCode', 'w3cValidatorStatus');
+          err.statusCode.should.be.eql(500);
+          err.w3cValidatorStatus.should.be.eql('Abort');
           done();
         });
 
-    }, config.test_delay);
-
+    }, config.TEST_DELAY);
   });
 
   it('cannot be validated without setting a source (uri or text)', function(done) {
-
     (function() {
       validator.validate();
-    }).should.throw();
-
+    }).should.throw('params.uri or params.text is a required argument');
     done();
-
   });
 
 });

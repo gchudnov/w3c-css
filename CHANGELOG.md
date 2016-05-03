@@ -1,7 +1,8 @@
-## v1.1.0
+## v2.0.0
 
+- Requires node.js version 4 or higher.
 - Update dependencies.
-- Add Dockerfile to deploy validator locally.
+- Add Dockerfile to deploy the w3c css-validator locally.
 
 ## v1.0.1
 

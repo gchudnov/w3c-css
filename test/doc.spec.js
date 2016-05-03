@@ -15,17 +15,15 @@ var config = require('./config');
 
 
 describe('Document', function() {
-  this.timeout(config.test_timeout);
+  this.timeout(config.TEST_TIMEOUT);
 
   it('can be validated with no errors or warnings', function(done) {
-
     setTimeout(function() {
-
       var cssPath = path.join(__dirname, './css/has-no-errors.css');
       var params = {
+        server: config.SERVER,
         text: fs.readFileSync(cssPath)
       };
-
       validator.validate(params, function(err, data) {
         should.not.exist(err);
         should.exist(data);
@@ -33,20 +31,16 @@ describe('Document', function() {
         data.warnings.should.be.instanceof(Array).and.have.lengthOf(0);
         done();
       });
-
-    }, config.test_delay);
-
+    }, config.TEST_DELAY);
   });
 
   it('can be validated with warnings', function(done) {
-
     setTimeout(function() {
-
       var cssPath = path.join(__dirname, './css/has-warnings.css');
       var params = {
+        server: config.SERVER,
         text: fs.readFileSync(cssPath)
       };
-
       validator.validate(params, function(err, data) {
         should.not.exist(err);
         should.exist(data);
@@ -54,20 +48,16 @@ describe('Document', function() {
         data.warnings.should.be.instanceof(Array).and.have.lengthOf(1);
         done();
       });
-
-    }, config.test_delay);
-
+    }, config.TEST_DELAY);
   });
 
   it('can be validated with errors', function(done) {
-
     setTimeout(function() {
-
       var cssPath = path.join(__dirname, './css/has-errors.css');
       var params = {
+        server: config.SERVER,
         text: fs.readFileSync(cssPath)
       };
-
       validator.validate(params, function(err, data) {
         should.not.exist(err);
         should.exist(data);
@@ -75,23 +65,18 @@ describe('Document', function() {
         data.warnings.should.be.instanceof(Array).and.have.lengthOf(0);
         done();
       });
-
-    }, config.test_delay);
-
+    }, config.TEST_DELAY);
   });
 
   it('cannot be validated if text is empty', function(done) {
-
     var params = {
+      server: config.SERVER,
       text: ''
     };
-
     (function() {
       validator.validate(params);
-    }).should.throw();
-
+    }).should.throw('params.text is empty');
     done();
-
   });
 
 });

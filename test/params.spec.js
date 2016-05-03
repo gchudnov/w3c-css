@@ -13,22 +13,18 @@ var config = require('./config');
 
 
 describe('Parameters', function () {
-  this.timeout(config.test_timeout);
-
-  var urlToValidate = config.url_to_validate;
+  this.timeout(config.TEST_TIMEOUT);
 
   // screen, print, ...
   describe('usermedium', function () {
 
     it('can be specified', function (done) {
-
       setTimeout(function() {
-
         var params = {
-          url: urlToValidate,
+          server: config.SERVER,
+          url: config.URL_TO_VALIDATE,
           usermedium: 'screen'
         };
-
         var str = validator.validate(params);
         str
           .on('error', function (err) {
@@ -38,19 +34,15 @@ describe('Parameters', function () {
             str.serviceUrl.should.match(/usermedium=screen/);
             done();
           });
-
-      }, config.test_delay);
-
+      }, config.TEST_DELAY);
     });
 
     it('set to `all` if not specified', function(done) {
-
       setTimeout(function() {
-
         var params = {
-          url: urlToValidate
+          server: config.SERVER,
+          url: config.URL_TO_VALIDATE
         };
-
         var str = validator.validate(params);
         str
           .on('error', function (err) {
@@ -60,25 +52,21 @@ describe('Parameters', function () {
             str.serviceUrl.should.match(/usermedium=all/);
             done();
           });
-
-      }, config.test_delay);
-
+      }, config.TEST_DELAY);
     });
 
   });
-
+  
   // css1, css2, css21, css3, svg, svgbasic, svgtiny, mobile, atsc-tv, tv or none
   describe('profile', function () {
-
+  
     it('can be specified', function (done) {
-
       setTimeout(function() {
-
         var params = {
-          url: urlToValidate,
+          server: config.SERVER,
+          url: config.URL_TO_VALIDATE,
           profile: 'css2'
         };
-
         var str = validator.validate(params);
         str
           .on('error', function (err) {
@@ -88,19 +76,15 @@ describe('Parameters', function () {
             str.serviceUrl.should.match(/profile=css2/);
             done();
           });
-
-      }, config.test_delay);
-
+      }, config.TEST_DELAY);
     });
-
+  
     it('set to `css3` if not specified', function(done) {
-
       setTimeout(function() {
-
         var params = {
-          url: urlToValidate
+          server: config.SERVER,
+          url: config.URL_TO_VALIDATE
         };
-
         var str = validator.validate(params);
         str
           .on('error', function (err) {
@@ -110,27 +94,23 @@ describe('Parameters', function () {
             str.serviceUrl.should.match(/profile=css3/);
             done();
           });
-
-      }, config.test_delay);
-
+      }, config.TEST_DELAY);
     });
-
+  
   });
 
   describe('uri & text', function() {
 
     it('cannot be specified both at the same time', function(done) {
-
       var params = {
-        uri: urlToValidate,
+        server: config.SERVER,
+        uri: config.URL_TO_VALIDATE,
         text: 'body { }'
       };
       (function() {
         validator.validate(params);
-      }).should.throw();
-
+      }).should.throw('either params.uri or params.text should be specified');
       done();
-
     });
 
   });

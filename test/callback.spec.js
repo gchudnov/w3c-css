@@ -13,36 +13,39 @@ var config = require('./config');
 
 
 describe('Callback', function() {
-  this.timeout(config.test_timeout);
-
-  var urlToValidate = config.url_to_validate;
+  this.timeout(config.TEST_TIMEOUT);
 
   it('can be specified to collect all errors and warnings', function(done) {
-
     setTimeout(function() {
-
-      validator.validate(urlToValidate, function(err, data) {
+      var params = {
+        server: config.SERVER,
+        url: config.URL_TO_VALIDATE
+      };
+      validator.validate(params, function(err, data) {
+        should.not.exist(err);
+        should.exist(data);
         data.should.have.properties('errors', 'warnings');
         data.errors.should.be.an.Array;
         data.warnings.should.be.an.Array;
         done();
       });
-
-    }, config.test_delay);
-
+    }, config.TEST_DELAY);
   });
 
-  it('can be specified to catch an error', function(done) {
-
+  it('can be specified to catch an error on invalid url', function(done) {
     setTimeout(function() {
-
-      validator.validate(config.url_not_found, function(err) {
+      var params = {
+        server: config.SERVER,
+        url: config.URL_NOT_FOUND
+      };
+      validator.validate(params, function(err) {
         should.exist(err);
+        err.should.have.properties('statusCode', 'w3cValidatorStatus');
+        err.statusCode.should.be.eql(500);
+        err.w3cValidatorStatus.should.be.eql('Abort');
         done();
       });
-
-    }, config.test_delay);
-
+    }, config.TEST_DELAY);
   });
 
 });
