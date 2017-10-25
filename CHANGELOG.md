@@ -1,3 +1,7 @@
+## v2.0.1
+
+- Update dependencies.
+
 ## v2.0.0
 
 - Requires node.js version 4 or higher.
