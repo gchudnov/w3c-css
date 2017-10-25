@@ -10,7 +10,9 @@
     "validator:run": "docker run -it --rm --name css-validator css-validator",
     "validator:run:detach": "docker run -it --detach --name css-validator css-validator",
     "validator:find:ip": "docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' css-validator",
-    "validator:find": "CSS_VALIDATOR_IP=$(npm run -s validator:find:ip) && echo '{ \"hostname\": \"'${CSS_VALIDATOR_IP}'\", \"port\": 8080 }'"
+    "validator:find": "CSS_VALIDATOR_IP=$(npm run -s validator:find:ip) && echo '{ \"hostname\": \"'${CSS_VALIDATOR_IP}'\", \"port\": 8080 }'",
+    "tag": "git tag v$npm_package_version",
+    "do:publish": "git push && git push --tags && npm publish"
   },
   "bin": {
     "w3c-css": "./lib/cli.js"
